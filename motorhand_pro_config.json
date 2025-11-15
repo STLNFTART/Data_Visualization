@@ -1,0 +1,123 @@
+{
+  "motorhand_pro": {
+    "version": "1.0.0",
+    "integration_type": "EMP_Multiswarm_Simulation",
+    "description": "Advanced satellite constellation and UAV swarm simulation with EMP threat response",
+    "practical_applications": [
+      {
+        "name": "Satellite Constellation Management",
+        "description": "Real-time visualization and management of large LEO/MEO satellite networks (Starlink-class)",
+        "use_case": "Monitor 150,000+ satellites for collision avoidance, orbital maintenance, and threat response",
+        "industries": ["Aerospace", "Telecommunications", "Defense"]
+      },
+      {
+        "name": "EMP Threat Response Training",
+        "description": "Simulate electromagnetic pulse attacks on critical infrastructure",
+        "use_case": "Train operators on EMP detection, impact assessment, and recovery procedures",
+        "industries": ["Defense", "Critical Infrastructure", "Military"]
+      },
+      {
+        "name": "Autonomous UAV Swarm Coordination",
+        "description": "Test and visualize coordinated UAV swarm behaviors under threat",
+        "use_case": "Develop and validate autonomous flight response algorithms for 150+ UAV swarms",
+        "industries": ["Defense", "Agriculture", "Logistics", "Search & Rescue"]
+      },
+      {
+        "name": "Space Traffic Management",
+        "description": "Manage congested orbital environments and prevent collisions",
+        "use_case": "Real-time tracking and collision avoidance for crowded orbital shells",
+        "industries": ["Space Operations", "Satellite Operators", "Space Agencies"]
+      },
+      {
+        "name": "Digital Twin Network Operations",
+        "description": "Simulate and optimize distributed sensor networks with multi-domain algorithms",
+        "use_case": "Test DDPS, GNSS, URC, and NGSR digital twin performance under various conditions",
+        "industries": ["IoT", "Smart Cities", "Industrial Automation"]
+      }
+    ],
+    "data_outputs": {
+      "real_time_streams": [
+        "satellite_positions_3d",
+        "uav_swarm_dynamics",
+        "emp_blast_radius",
+        "threat_detection_events",
+        "algorithm_performance_metrics",
+        "network_health_status"
+      ],
+      "visualization_formats": [
+        "3D_scatter_plots",
+        "time_series_metrics",
+        "heatmaps",
+        "network_graphs",
+        "animation_sequences"
+      ],
+      "export_formats": ["json", "csv", "hdf5", "parquet"]
+    },
+    "algorithms": {
+      "IPU": {
+        "name": "Intelligent Processing Unit",
+        "purpose": "Resource optimization and market analysis",
+        "inputs": ["cpu_load", "memory_usage", "network_usage", "workload_change"],
+        "outputs": ["resource_imbalance", "processing_pressure", "optimization_recommendation"]
+      },
+      "temporal_processor": {
+        "name": "Temporal Signal Processor",
+        "purpose": "Time-series signal processing with latency optimization",
+        "inputs": ["signal_series", "timestamps"],
+        "outputs": ["signal_statistics", "latency_metrics", "quality_score"]
+      },
+      "sovereign_kernel": {
+        "name": "Sovereign Kernel",
+        "purpose": "Multi-sensor fusion and anomaly detection",
+        "inputs": ["signal_stream", "sensor_confidences"],
+        "outputs": ["state_vector", "anomaly_detected", "system_health"]
+      },
+      "jpl": {
+        "name": "JPL Autonomous Control",
+        "purpose": "Autonomous vehicle control and trajectory optimization",
+        "inputs": ["position", "velocity", "heading", "target_waypoint"],
+        "outputs": ["control_output", "safety_status", "trajectory_quality"]
+      },
+      "primal_logic": {
+        "name": "Primal Logic Trust Network",
+        "purpose": "Trust vector analysis and consensus decision-making",
+        "inputs": ["trust_vector", "signal_strength", "sensor_ids"],
+        "outputs": ["consensus_result", "trust_anomalies", "primal_decision"]
+      }
+    },
+    "performance_targets": {
+      "entities_per_second": 75000,
+      "max_simulation_cycles": 64800,
+      "visualization_sample_size": 500,
+      "real_time_latency_ms": 100
+    },
+    "api_endpoints": {
+      "base_url": "http://localhost:8000",
+      "websocket_url": "ws://localhost:8000/ws",
+      "endpoints": {
+        "simulation_status": "/api/v1/simulation/status",
+        "entity_data": "/api/v1/entities/{entity_type}",
+        "algorithm_results": "/api/v1/algorithms/{algorithm_type}",
+        "emp_events": "/api/v1/threats/emp",
+        "threat_response": "/api/v1/threats/response",
+        "visualization_stream": "/api/v1/visualization/stream"
+      }
+    },
+    "integration_modes": {
+      "standalone": {
+        "description": "Run simulation independently with built-in visualization",
+        "enabled": true
+      },
+      "motorhand_pro_client": {
+        "description": "Connect to Motorhand Pro as data source",
+        "enabled": true,
+        "connection_type": "REST_API + WebSocket"
+      },
+      "motorhand_pro_server": {
+        "description": "Serve data to Motorhand Pro visualization dashboard",
+        "enabled": true,
+        "protocol": "WebSocket"
+      }
+    }
+  }
+}
