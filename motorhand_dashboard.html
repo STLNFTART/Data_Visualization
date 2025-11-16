@@ -1,0 +1,238 @@
+// Live WebSocket Connection Example
+// Save as: connect_motorhand.html and open in browser
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Motorhand Pro - Live Dashboard</title>
+    <style>
+        body {
+            font-family: 'Courier New', monospace;
+            background: #0a0e27;
+            color: #00ff00;
+            padding: 20px;
+        }
+        .container { max-width: 1200px; margin: 0 auto; }
+        .header {
+            background: #1a1e37;
+            padding: 20px;
+            border-radius: 10px;
+            margin-bottom: 20px;
+            border: 2px solid #00ff00;
+        }
+        .stats {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 15px;
+            margin-bottom: 20px;
+        }
+        .stat-card {
+            background: #1a1e37;
+            padding: 15px;
+            border-radius: 8px;
+            border: 1px solid #00ff00;
+        }
+        .stat-card h3 {
+            margin: 0 0 10px 0;
+            color: #00ffff;
+        }
+        .stat-value {
+            font-size: 24px;
+            font-weight: bold;
+            color: #00ff00;
+        }
+        .log {
+            background: #000;
+            padding: 15px;
+            border-radius: 8px;
+            border: 1px solid #00ff00;
+            height: 400px;
+            overflow-y: auto;
+            font-size: 12px;
+        }
+        .log-entry {
+            margin: 5px 0;
+            padding: 5px;
+            border-left: 3px solid #00ff00;
+            padding-left: 10px;
+        }
+        .status-connected { color: #00ff00; }
+        .status-disconnected { color: #ff0000; }
+        .satellite-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            gap: 10px;
+            margin-top: 20px;
+        }
+        .satellite-item {
+            background: #1a1e37;
+            padding: 10px;
+            border-radius: 5px;
+            border: 1px solid #444;
+            font-size: 11px;
+        }
+        .healthy { border-color: #00ff00; }
+        .degraded { border-color: #ffff00; }
+        .critical { border-color: #ff0000; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>🌌 Motorhand Pro - Live Satellite Constellation Monitor</h1>
+            <p>Status: <span id="status" class="status-disconnected">Disconnected</span></p>
+        </div>
+
+        <div class="stats">
+            <div class="stat-card">
+                <h3>🛰️ Satellites</h3>
+                <div class="stat-value" id="satellite-count">0</div>
+                <div>Avg Health: <span id="satellite-health">0%</span></div>
+            </div>
+            <div class="stat-card">
+                <h3>🚁 UAVs</h3>
+                <div class="stat-value" id="uav-count">0</div>
+                <div>Avg Fuel: <span id="uav-fuel">0%</span></div>
+            </div>
+            <div class="stat-card">
+                <h3>🤖 Digital Twins</h3>
+                <div class="stat-value" id="twin-count">0</div>
+                <div>Status: <span id="twin-status">Unknown</span></div>
+            </div>
+            <div class="stat-card">
+                <h3>⚡ Current Cycle</h3>
+                <div class="stat-value" id="current-cycle">0</div>
+                <div>EMP Attacks: <span id="emp-count">0</span></div>
+            </div>
+        </div>
+
+        <div class="stat-card">
+            <h3>📡 Live Event Log</h3>
+            <div class="log" id="log"></div>
+        </div>
+
+        <div id="satellite-list" class="satellite-list"></div>
+    </div>
+
+    <script>
+        // Connect to Motorhand Pro WebSocket
+        const ws = new WebSocket('ws://localhost:8000/ws');
+        const log = document.getElementById('log');
+        const status = document.getElementById('status');
+
+        function addLog(message, type = 'info') {
+            const entry = document.createElement('div');
+            entry.className = 'log-entry';
+            entry.textContent = `[${new Date().toLocaleTimeString()}] ${message}`;
+            log.insertBefore(entry, log.firstChild);
+
+            // Keep only last 50 entries
+            while (log.children.length > 50) {
+                log.removeChild(log.lastChild);
+            }
+        }
+
+        ws.onopen = () => {
+            status.textContent = 'Connected';
+            status.className = 'status-connected';
+            addLog('✅ Connected to Motorhand Pro');
+
+            // Subscribe to updates
+            ws.send(JSON.stringify({
+                type: 'subscribe',
+                channels: ['simulation_update', 'emp_events', 'collision_alerts']
+            }));
+            addLog('📤 Subscribed to real-time updates');
+
+            // Request initial snapshot
+            ws.send(JSON.stringify({ type: 'get_snapshot' }));
+        };
+
+        ws.onmessage = (event) => {
+            const data = JSON.parse(event.data);
+
+            if (data.type === 'subscription_confirmed') {
+                addLog(`✅ Subscription confirmed: ${data.channels.join(', ')}`);
+            }
+
+            if (data.type === 'snapshot' || data.type === 'simulation_update') {
+                const snapshot = data.data;
+                updateDashboard(snapshot);
+            }
+        };
+
+        ws.onerror = (error) => {
+            addLog('❌ WebSocket error', 'error');
+            status.textContent = 'Error';
+            status.className = 'status-disconnected';
+        };
+
+        ws.onclose = () => {
+            status.textContent = 'Disconnected';
+            status.className = 'status-disconnected';
+            addLog('🔌 Disconnected from Motorhand Pro');
+        };
+
+        function updateDashboard(snapshot) {
+            const entities = snapshot.entities || {};
+            const threats = snapshot.threats || {};
+
+            // Update stats
+            document.getElementById('satellite-count').textContent = entities.satellites_count || 0;
+            document.getElementById('uav-count').textContent = entities.uavs_count || 0;
+            document.getElementById('twin-count').textContent = entities.twins_count || 0;
+            document.getElementById('current-cycle').textContent = snapshot.cycle || 0;
+            document.getElementById('emp-count').textContent = threats.emp_events_count || 0;
+
+            // Calculate average health
+            const satellites = entities.satellites_sample || [];
+            if (satellites.length > 0) {
+                const avgHealth = satellites.reduce((sum, s) => sum + s.health, 0) / satellites.length;
+                document.getElementById('satellite-health').textContent = (avgHealth * 100).toFixed(1) + '%';
+            }
+
+            // Calculate average fuel
+            const uavs = entities.uavs_sample || [];
+            if (uavs.length > 0) {
+                const avgFuel = uavs.reduce((sum, u) => sum + u.fuel_level, 0) / uavs.length;
+                document.getElementById('uav-fuel').textContent = (avgFuel * 100).toFixed(1) + '%';
+            }
+
+            // Update satellite list
+            const satList = document.getElementById('satellite-list');
+            satList.innerHTML = '<h3 style="grid-column: 1/-1; color: #00ffff;">Sample Satellites (First 20)</h3>';
+
+            satellites.slice(0, 20).forEach(sat => {
+                const div = document.createElement('div');
+                div.className = 'satellite-item';
+
+                // Determine health status
+                if (sat.health > 0.7) {
+                    div.classList.add('healthy');
+                } else if (sat.health > 0.4) {
+                    div.classList.add('degraded');
+                } else {
+                    div.classList.add('critical');
+                }
+
+                div.innerHTML = `
+                    <strong>SAT-${sat.id}</strong><br>
+                    Health: ${(sat.health * 100).toFixed(0)}%<br>
+                    Trust: ${(sat.trust * 100).toFixed(0)}%<br>
+                    ${sat.emp_affected ? '⚡ EMP Affected' : '✅ Operational'}
+                `;
+                satList.appendChild(div);
+            });
+
+            addLog(`📊 Updated: ${entities.satellites_count} satellites, ${entities.uavs_count} UAVs`);
+        }
+
+        // Request updates every 2 seconds
+        setInterval(() => {
+            if (ws.readyState === WebSocket.OPEN) {
+                ws.send(JSON.stringify({ type: 'get_snapshot' }));
+            }
+        }, 2000);
+    </script>
+</body>
+</html>
