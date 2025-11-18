@@ -1,0 +1,363 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Maximum Output Data Visualization Suite - Index</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 20px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+            overflow: hidden;
+        }
+
+        .header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 40px;
+            text-align: center;
+        }
+
+        .header h1 {
+            font-size: 2.5em;
+            margin-bottom: 10px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.2);
+        }
+
+        .header p {
+            font-size: 1.2em;
+            opacity: 0.9;
+        }
+
+        .stats {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+            padding: 30px 40px;
+            background: #f8f9fa;
+            border-bottom: 3px solid #667eea;
+        }
+
+        .stat-box {
+            text-align: center;
+            padding: 20px;
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+
+        .stat-number {
+            font-size: 2em;
+            font-weight: bold;
+            color: #667eea;
+            display: block;
+        }
+
+        .stat-label {
+            color: #666;
+            margin-top: 5px;
+            font-size: 0.9em;
+        }
+
+        .content {
+            padding: 40px;
+        }
+
+        .visualization-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 30px;
+            margin-top: 30px;
+        }
+
+        .viz-card {
+            background: white;
+            border: 2px solid #e0e0e0;
+            border-radius: 15px;
+            padding: 25px;
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+
+        .viz-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(102, 126, 234, 0.3);
+            border-color: #667eea;
+        }
+
+        .viz-icon {
+            font-size: 3em;
+            margin-bottom: 15px;
+            display: block;
+        }
+
+        .viz-title {
+            font-size: 1.4em;
+            color: #333;
+            margin-bottom: 10px;
+            font-weight: 600;
+        }
+
+        .viz-description {
+            color: #666;
+            line-height: 1.6;
+            margin-bottom: 15px;
+        }
+
+        .viz-meta {
+            display: flex;
+            justify-content: space-between;
+            font-size: 0.85em;
+            color: #999;
+            margin-bottom: 15px;
+        }
+
+        .viz-button {
+            display: block;
+            width: 100%;
+            padding: 12px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            text-align: center;
+            text-decoration: none;
+            border-radius: 8px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+
+        .viz-button:hover {
+            transform: scale(1.05);
+            box-shadow: 0 5px 15px rgba(102, 126, 234, 0.4);
+        }
+
+        .featured {
+            background: linear-gradient(135deg, #ffeaa7 0%, #fdcb6e 100%);
+            border-color: #fdcb6e;
+        }
+
+        .featured .viz-title {
+            color: #2d3436;
+        }
+
+        .badge {
+            display: inline-block;
+            padding: 4px 12px;
+            background: #667eea;
+            color: white;
+            border-radius: 20px;
+            font-size: 0.75em;
+            font-weight: bold;
+            margin-left: 10px;
+        }
+
+        .footer {
+            background: #2d3436;
+            color: white;
+            text-align: center;
+            padding: 20px;
+            margin-top: 40px;
+        }
+
+        .instructions {
+            background: #e3f2fd;
+            border-left: 4px solid #2196F3;
+            padding: 20px;
+            margin-bottom: 30px;
+            border-radius: 5px;
+        }
+
+        .instructions h3 {
+            color: #1976D2;
+            margin-bottom: 10px;
+        }
+
+        .instructions ul {
+            margin-left: 20px;
+            line-height: 1.8;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>🎨 Maximum Output Data Visualization Suite</h1>
+            <p>Interactive Scientific Visualizations Across 10 Domains</p>
+        </div>
+
+        <div class="stats">
+            <div class="stat-box">
+                <span class="stat-number">86,100+</span>
+                <span class="stat-label">Data Points</span>
+            </div>
+            <div class="stat-box">
+                <span class="stat-number">6</span>
+                <span class="stat-label">Visualizations</span>
+            </div>
+            <div class="stat-box">
+                <span class="stat-number">20+</span>
+                <span class="stat-label">Total Plots</span>
+            </div>
+            <div class="stat-box">
+                <span class="stat-number">10</span>
+                <span class="stat-label">Scientific Domains</span>
+            </div>
+        </div>
+
+        <div class="content">
+            <div class="instructions">
+                <h3>📖 How to Use</h3>
+                <ul>
+                    <li><strong>Click "Open Visualization"</strong> on any card below</li>
+                    <li><strong>Rotate 3D plots:</strong> Left-click and drag</li>
+                    <li><strong>Zoom:</strong> Scroll or click-drag a region</li>
+                    <li><strong>Hover:</strong> See detailed values</li>
+                    <li><strong>Animate:</strong> Click Play button on animated plots</li>
+                    <li><strong>Download:</strong> Use camera icon (top-right) to save images</li>
+                </ul>
+            </div>
+
+            <h2>🎯 Your Visualizations</h2>
+
+            <div class="visualization-grid">
+                <!-- Card 1: Main Dashboard (Featured) -->
+                <div class="viz-card featured">
+                    <span class="viz-icon">⭐</span>
+                    <div class="viz-title">
+                        Main Dashboard
+                        <span class="badge">START HERE</span>
+                    </div>
+                    <div class="viz-meta">
+                        <span>📊 8 Subplots</span>
+                        <span>💾 7.3 MB</span>
+                    </div>
+                    <div class="viz-description">
+                        Comprehensive overview with mathematical surfaces, quantum mechanics, wave interference, EM fields, statistics, circuits, FFT analysis, and regression - all in one view!
+                    </div>
+                    <a href="Maximum_Output_Visualization.html" class="viz-button">
+                        🚀 Open Visualization
+                    </a>
+                </div>
+
+                <!-- Card 2: Animated Wave -->
+                <div class="viz-card">
+                    <span class="viz-icon">🌊</span>
+                    <div class="viz-title">Animated 3D Wave</div>
+                    <div class="viz-meta">
+                        <span>🎬 50 Frames</span>
+                        <span>💾 55 MB</span>
+                    </div>
+                    <div class="viz-description">
+                        Mesmerizing 3D wave propagation animation showing sinc function evolution over time. Features interactive play/pause controls and smooth transitions.
+                    </div>
+                    <a href="Animated_Wave_3D.html" class="viz-button">
+                        🚀 Open Visualization
+                    </a>
+                </div>
+
+                <!-- Card 3: Statistical Dashboard -->
+                <div class="viz-card">
+                    <span class="viz-icon">📈</span>
+                    <div class="viz-title">Statistical Dashboard</div>
+                    <div class="viz-meta">
+                        <span>📊 6 Plots</span>
+                        <span>💾 4.7 MB</span>
+                    </div>
+                    <div class="viz-description">
+                        Complete statistical analysis suite with Normal, t-distribution, Chi-squared, sample histograms, Q-Q plots, and confidence intervals for hypothesis testing.
+                    </div>
+                    <a href="Statistical_Dashboard.html" class="viz-button">
+                        🚀 Open Visualization
+                    </a>
+                </div>
+
+                <!-- Card 4: Circuit Analysis -->
+                <div class="viz-card">
+                    <span class="viz-icon">🔌</span>
+                    <div class="viz-title">Circuit Analysis</div>
+                    <div class="viz-meta">
+                        <span>📊 4 Plots</span>
+                        <span>💾 4.7 MB</span>
+                    </div>
+                    <div class="viz-description">
+                        Comprehensive RC/RLC circuit analysis showing charging/discharging curves, current flow, power dissipation, and frequency-dependent impedance with resonance.
+                    </div>
+                    <a href="Circuit_Analysis_Comprehensive.html" class="viz-button">
+                        🚀 Open Visualization
+                    </a>
+                </div>
+
+                <!-- Card 5: Electromagnetic Fields -->
+                <div class="viz-card">
+                    <span class="viz-icon">⚡</span>
+                    <div class="viz-title">Electromagnetic Fields</div>
+                    <div class="viz-meta">
+                        <span>📊 3D Field Lines</span>
+                        <span>💾 4.7 MB</span>
+                    </div>
+                    <div class="viz-description">
+                        Beautiful 3D visualization of magnetic field lines around a current-carrying wire. Fully rotatable and interactive to explore field topology.
+                    </div>
+                    <a href="Electromagnetic_Fields_3D.html" class="viz-button">
+                        🚀 Open Visualization
+                    </a>
+                </div>
+
+                <!-- Card 6: Projectile Motion -->
+                <div class="viz-card">
+                    <span class="viz-icon">🎯</span>
+                    <div class="viz-title">Projectile Motion</div>
+                    <div class="viz-meta">
+                        <span>📊 7 Trajectories</span>
+                        <span>💾 4.7 MB</span>
+                    </div>
+                    <div class="viz-description">
+                        Physics simulation showing projectile trajectories at different launch angles. Identifies optimal angle (45°) and maximum range of 254.8m.
+                    </div>
+                    <a href="Projectile_Motion_Analysis.html" class="viz-button">
+                        🚀 Open Visualization
+                    </a>
+                </div>
+            </div>
+
+            <div style="margin-top: 40px; padding: 30px; background: #f8f9fa; border-radius: 10px;">
+                <h3 style="margin-bottom: 15px;">📚 Scientific Domains Covered:</h3>
+                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 10px;">
+                    <div>✓ Mathematical Analysis</div>
+                    <div>✓ Quantum Mechanics</div>
+                    <div>✓ Wave Physics</div>
+                    <div>✓ Electromagnetism</div>
+                    <div>✓ Statistical Analysis</div>
+                    <div>✓ Circuit Theory</div>
+                    <div>✓ Signal Processing</div>
+                    <div>✓ Classical Mechanics</div>
+                    <div>✓ Graph Theory</div>
+                    <div>✓ Data Science</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="footer">
+            <p>Created with Python, NumPy, SciPy, Pandas, and Plotly</p>
+            <p style="margin-top: 10px; font-size: 0.9em; opacity: 0.8;">
+                All visualizations are interactive and work offline • No installation required
+            </p>
+        </div>
+    </div>
+</body>
+</html>
