@@ -1,0 +1,39 @@
+{
+  "github": {
+    "username": "STLNFTART",
+    "token": "",
+    "repositories": [],
+    "auto_discover": true
+  },
+  "apis": {
+    "enabled": true,
+    "endpoints": [
+      {
+        "name": "Example API",
+        "url": "https://api.example.com/data",
+        "method": "GET",
+        "headers": {},
+        "enabled": false
+      }
+    ]
+  },
+  "live_streams": {
+    "enabled": true,
+    "websocket_servers": [],
+    "mqtt_brokers": [],
+    "kafka_topics": []
+  },
+  "databases": {
+    "postgresql": [],
+    "mysql": [],
+    "mongodb": [],
+    "sqlite": []
+  },
+  "visualization_settings": {
+    "auto_generate": true,
+    "output_directory": "visualizations_output",
+    "formats": ["html", "png", "json"],
+    "update_interval_seconds": 60,
+    "max_visualizations_per_dataset": 10
+  }
+}
