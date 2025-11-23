@@ -1,0 +1,78 @@
+{
+  "timestamp": "2025-11-23T07:08:41.960579",
+  "total_files": 1000,
+  "syntax_errors": [
+    {
+      "file": "3D_CRT_Electron_Motion_Analysis.py",
+      "error": "closing parenthesis '}' does not match opening parenthesis '[' on line 57 (<unknown>, line 60)"
+    },
+    {
+      "file": "Calculation_Power_Dissipation_in_a_Bulb.py",
+      "error": "invalid syntax (<unknown>, line 27)"
+    },
+    {
+      "file": "rms_peak_animation.py",
+      "error": "closing parenthesis ']' does not match opening parenthesis '(' on line 41 (<unknown>, line 42)"
+    }
+  ],
+  "import_errors": [],
+  "execution_results": [
+    {
+      "file": "testing_magnetic_force.py",
+      "status": "completed",
+      "return_code": 0,
+      "stdout": "<IPython.core.display.Math object>\n<IPython.core.display.Math object>\n<IPython.core.display.Math object>\n<IPython.core.display.Math object>\n<IPython.core.display.Math object>\nThe magnetic force is 1.00e-11 N.\n",
+      "stderr": ""
+    },
+    {
+      "file": "3D_testing_magnetic_force_visualization.py",
+      "status": "completed",
+      "return_code": 0,
+      "stdout": "<IPython.core.display.Math object>\n<IPython.core.display.Math object>\n<IPython.core.display.Math object>\n<IPython.core.display.Math object>\n<IPython.core.display.Math object>\nThe magnetic force is 1.00e-11 N.\n",
+      "stderr": ""
+    }
+  ],
+  "dependency_check": {
+    "IPython": "\u2713 Available",
+    "base64": "\u2713 Available",
+    "bokeh": "\u2717 Missing",
+    "community": "\u2717 Missing",
+    "dash": "\u2717 Missing",
+    "dash_bootstrap_components": "\u2717 Missing",
+    "dash_core_components": "\u2717 Missing",
+    "dash_html_components": "\u2717 Missing",
+    "dask": "\u2717 Missing",
+    "holoviews": "\u2717 Missing",
+    "io": "\u2713 Available",
+    "ipywidgets": "\u2717 Missing",
+    "itertools": "\u2713 Available",
+    "keras": "\u2717 Missing",
+    "math": "\u2713 Available",
+    "matplotlib": "\u2713 Available",
+    "matplotlib_venn": "\u2717 Missing",
+    "mpl_toolkits": "\u2713 Available",
+    "networkx": "\u2713 Available",
+    "numpy": "\u2713 Available",
+    "pandas": "\u2713 Available",
+    "plotly": "\u2713 Available",
+    "scipy": "\u2713 Available",
+    "seaborn": "\u2713 Available",
+    "sklearn": "\u2713 Available",
+    "sympy": "\u2713 Available",
+    "time": "\u2713 Available",
+    "tkinter": "\u2717 Missing",
+    "torch": "\u2717 Missing",
+    "warnings": "\u2713 Available"
+  },
+  "summary": {
+    "total_files": 1000,
+    "syntax_valid": 997,
+    "syntax_errors": 3,
+    "dependencies_available": 17,
+    "dependencies_missing": 13,
+    "test_files_passed": 2,
+    "test_files_failed": 0,
+    "sample_files_passed": 4,
+    "sample_files_failed": 1
+  }
+}

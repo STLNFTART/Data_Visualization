@@ -1,0 +1,31 @@
+# Core Scientific Computing
+numpy==2.3.5
+pandas==2.3.3
+scipy==1.16.3
+
+# Visualization
+matplotlib==3.10.7
+plotly==6.5.0
+seaborn==0.13.2
+
+# Mathematics
+sympy==1.14.0
+
+# Graph Theory
+networkx==3.5
+
+# Machine Learning
+scikit-learn==1.7.2
+
+# Interactive Computing
+ipython==9.7.0
+ipywidgets==8.1.8
+
+# Optional (for specific visualizations)
+# bokeh>=3.0.0
+# dash>=2.0.0
+# dash-bootstrap-components>=1.0.0
+# holoviews>=1.17.0
+# matplotlib-venn>=0.11.0
+# keras>=3.0.0
+# torch>=2.0.0
