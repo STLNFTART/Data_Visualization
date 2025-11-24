@@ -511,6 +511,78 @@ pip install numpy matplotlib pandas plotly sympy networkx torch scikit-learn sci
    - Push with `-u origin <branch-name>` format
    - Retry on network failures with exponential backoff
 
+## High-Quality Visualization Resources
+
+When seeking inspiration or best practices, reference these professional-grade galleries:
+
+### Premier Galleries & Collections
+
+**[Python Graph Gallery](https://python-graph-gallery.com/)** ⭐ Top Recommendation
+- 400+ chart examples with reproducible code
+- Organized by chart type (40+ categories)
+- Best examples showcase publication-ready visualizations
+- Comprehensive explanations for each example
+
+**[Official Matplotlib Gallery](https://matplotlib.org/stable/gallery/index.html)**
+- Official examples from matplotlib developers
+- Browse by tags and categories
+- Click any image to see full source code
+- Always up-to-date with latest features
+
+**[Nicolas Rougier's Scientific Visualization Book](https://github.com/rougier/scientific-visualization-book)** ⭐ Highly Recommended
+- Open-access book with 9.9k+ GitHub stars
+- Professional-quality scientific visualizations
+- Covers fundamentals, design, 3D, animation
+- Showcase section with publication-ready examples
+- Free PDF and all source code available
+
+**[Official Plotly Examples](https://plotly.com/python/)**
+- Interactive, publication-quality graphs
+- Examples for all chart types
+- Web-based and shareable visualizations
+
+**[Seaborn Gallery](https://seaborn.pydata.org/)**
+- Statistical data visualization examples
+- Beautiful default styling
+- High-level interface for matplotlib
+
+### Curated GitHub Repositories
+
+**[javedali99/python-data-visualization](https://github.com/javedali99/python-data-visualization)**
+- Sample code with multiple libraries
+- Jupyter notebooks with examples
+- Matplotlib, Plotly, and Seaborn demos
+
+**[tkoyama010/awesome-python-data-visualization](https://github.com/tkoyama010/awesome-python-data-visualization)**
+- Curated list of visualization tools
+- Includes PyVista (3D/VTK), VisPy (OpenGL)
+- Links to tutorials and resources
+
+**[rasbt/matplotlib-gallery](https://github.com/rasbt/matplotlib-gallery)**
+- IPython notebooks with diverse examples
+- Well-organized visualization patterns
+
+### Learning Resources
+
+**[Towards Data Science - Python Visualization](https://towardsdatascience.com/)**
+- In-depth tutorials and guides
+- Time-series, statistical, and scientific viz
+- Comparative guides (Matplotlib vs Plotly vs Altair)
+
+**Additional Rougier Resources:**
+- [Matplotlib Cheat Sheets](https://github.com/rougier/matplotlib-cheatsheet) (7.1k stars)
+- [Matplotlib Tutorial](https://github.com/rougier/matplotlib-tutorial) (2.8k stars)
+- [100 Numpy Exercises](https://github.com/rougier/numpy-100) (11k stars)
+
+### Modern Visualization Libraries (2025)
+
+For next-generation visualizations, consider:
+- **PyVista** - 3D plotting and mesh analysis via VTK
+- **VisPy** - High-performance OpenGL-based visualization
+- **Bokeh** - Interactive dashboards and real-time data
+- **Altair** - Declarative statistical visualization
+- **Plotly** - Interactive web-based visualizations
+
 ## Additional Resources
 
 ### Mathematical Notation
@@ -518,10 +590,13 @@ pip install numpy matplotlib pandas plotly sympy networkx torch scikit-learn sci
 - Example: `# Calculate: ∫sin(x)dx = -cos(x) + C`
 
 ### Visualization Best Practices
-- Use colorblind-friendly colormaps when possible
+- Study examples from [Python Graph Gallery's Best Examples](https://python-graph-gallery.com/best-python-chart-examples/)
+- Follow Nicolas Rougier's design principles from his scientific visualization book
+- Use colorblind-friendly colormaps (viridis, plasma, cividis)
 - Ensure sufficient contrast for readability
 - Add grid lines for reference when helpful
 - Include legends for multi-series plots
+- Reference [Matplotlib's official tutorials](https://matplotlib.org/stable/tutorials/index.html)
 
 ### Common Pitfalls
 1. Forgetting `plt.show()` at the end
@@ -529,6 +604,8 @@ pip install numpy matplotlib pandas plotly sympy networkx torch scikit-learn sci
 3. Mismatched array dimensions in mesh grids
 4. Missing imports for specific features
 5. Incorrect mathematical formulas
+6. Poor color choices (use professional palettes)
+7. Cluttered layouts (study professional examples for spacing)
 
 ## Repository Statistics
 
